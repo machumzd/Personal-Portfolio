@@ -1,2 +1,2 @@
 # personal profile
-www.machumzd.github.io/webpage
+https://www.machumzd.ml
