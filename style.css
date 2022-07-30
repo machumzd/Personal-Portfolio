@@ -392,8 +392,15 @@ img {
 .work__img img {
     transition: 1s;
     cursor: pointer;
-}
 
+}
+.pro-title
+{
+    transition:1s;
+    cursor:pointer;
+    text-decoration: none;
+    color: inherit;
+}
 .work__img img:hover {
     transform: scale(1.1);
 }
@@ -533,30 +540,3 @@ img {
         right: 10%;
     }
 }
-
-Third Step,
-you have to create a JS file with the name of js.js and paste the given codes in your js file. Remember,
-you’ve to create a file with .js extension. JS Code:
-/*===== MENU SHOW =====*/
-
-const showMenu=(toggleId,
-navId)=> {
-    const toggle=document.getElementById(toggleId),
-    nav=document.getElementById(navId) if(toggle && nav) {
-        toggle.addEventListener('click',
-        ()=> {
-            nav.classList.toggle('show')
-        }
-        )
-    }
-}
-
-showMenu('nav-toggle',
-'nav-menu')
-/*===== ACTIVE AND REMOVE MENU =====*/
-
-const navLink=document.querySelectorAll('.nav__link');
-function linkAction() {
-    /*Active link*/
-    navLink.forEach(n=>n.classList.remove('active'));
-    this.classList.add('active');
