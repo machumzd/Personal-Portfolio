@@ -397,9 +397,13 @@ img {
 .pro-title
 {
     transition:1s;
+    color: black;
     cursor:pointer;
-    text-decoration: none;
-    color: inherit;
+    font-weight: var(--font-semi);
+    display:flex;
+    justify-content:center;
+   
+    
 }
 .work__img img:hover {
     transform: scale(1.1);
