@@ -255,7 +255,7 @@
     .home__social-icon {
         width: max-content;
         margin-bottom: var(--mb-2);
-        font-size: 2.8rem;
+        font-size: 2.5rem;
         color: var(--second-color);
     }
 
@@ -490,6 +490,9 @@
         cursor: pointer;
         margin-left: auto;
     }
+    .error{
+        color:red;
+}
     /* ===== FOOTER =====*/
 
     .footer {
