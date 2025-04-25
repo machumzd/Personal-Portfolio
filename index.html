@@ -1,272 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ABDUL MAZOOD</title>
     <!----CSS link----->
     <link rel="stylesheet" href="style.css" />
     <!-- =====BOX ICONS===== -->
-    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
-</head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <!--===== HEADER =====-->
     <header class="l-header">
-        <nav class="nav bd-grid">
-            <div>
-                <a href="#" class="nav__logo">Abdul Mazood</a>
-            </div>
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="#home" class="nav__link active">Home</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#about" class="nav__link">About</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#skills" class="nav__link">Skills</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#work" class="nav__link">Projects</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#testimonial" class="nav__link">Testimonial</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#contact" class="nav__link">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="nav__toggle" id="nav-toggle">
-                <i class="bx bx-menu"></i>
-            </div>
-        </nav>
+      <nav class="nav bd-grid">
+        <div>
+          <a href="#" class="nav__logo">Abdul Mazood</a>
+        </div>
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#home" class="nav__link active">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="#about" class="nav__link">About</a>
+            </li>
+            <li class="nav__item">
+              <a href="#skills" class="nav__link">Skills</a>
+            </li>
+            <li class="nav__item">
+              <a href="#work" class="nav__link">Projects</a>
+            </li>
+            <li class="nav__item">
+              <a href="#testimonial" class="nav__link">Testimonial</a>
+            </li>
+            <li class="nav__item">
+              <a href="#contact" class="nav__link">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="bx bx-menu"></i>
+        </div>
+      </nav>
     </header>
     <main class="l-main">
-        <!--===== HOME =====-->
-        <section class="home bd-grid" id="home">
-            <div class="home__data">
-                <h1 class="home__title">
-                    Hi,<br />I'am <span class="home__title-color">Abdul Mazood</span><br />web Developer
-                </h1>
-                <a href="https://drive.google.com/file/d/1TMR9CWOO67P1OcPsfx7q_GxwQT8-SQDl/view" target="_blank"
-                    class="button">Resume</a>
+      <!--===== HOME =====-->
+      <section class="home bd-grid" id="home">
+        <div class="home__data">
+          <h1 class="home__title">
+            Hi,<br />I'am <span class="home__title-color">Abdul Mazood</span
+            ><br />Full Stack Developer
+          </h1>
+          <a
+            href="https://drive.google.com/file/d/1TMR9CWOO67P1OcPsfx7q_GxwQT8-SQDl/view"
+            target="_blank"
+            class="button"
+            >Resume</a
+          >
+        </div>
+        <div class="home__social">
+          <a
+            href="https://in.linkedin.com/in/abdul-mazood-14640b1aa"
+            target="_blank"
+            class="home__social-icon"
+            ><i class="bx bxl-linkedin"></i
+          ></a>
+          <a
+            href="https://github.com/machumzd"
+            class="home__social-icon"
+            target="_blank"
+            ><i class="bx bxl-github"></i
+          ></a>
+        </div>
+        <div class="home__img">
+          <img src="img/profilePic.jpeg" alt="network timeout" />
+        </div>
+      </section>
+      <!--===== ABOUT =====-->
+      <section class="about section" id="about">
+        <h2 class="section-title">About</h2>
+        <div class="about__container bd-grid">
+          <div class="about__img">
+            <img src="img/pic2.jpg" alt="network timeout" />
+          </div>
+
+          <div>
+            <h2 class="about__subtitle">ABDUL MAZOOD</h2>
+            <p class="about__text">
+              Driven Full Stack Developer with
+              <strong>2 years of experience</strong>, a strong focus on user
+              experience, and a history of reducing post-deployment issues.
+              Proficient in agile methodologies, with specialization in MERN,
+              Next.js, and Nest.js, alongside GraphQL expertise. Successfully
+              developed advanced features and optimized API operations,
+              enhancing overall efficiency and performance. Committed to
+              leveraging technical skills to deliver innovative solutions that
+              drive business success.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!--===== SKILLS =====-->
+      <section class="skills section" id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills__container bd-grid">
+          <!-- First Column -->
+          <div>
+            <p class="skills__text">Technologies I Work With</p>
+
+            <div class="skills__data">
+              <div class="skills__names">
+                <i class="bx bxl-javascript skills__icon"></i>
+                <span class="skills__name">JavaScript, TypeScript</span>
+              </div>
             </div>
-            <div class="home__social">
-                <a href="https://in.linkedin.com/in/abdul-mazood-14640b1aa" target="_blank" class="home__social-icon"><i
-                        class="bx bxl-linkedin"></i></a>
-                <a href="https://github.com/machumzd" class="home__social-icon" target="_blank"><i
-                        class="bx bxl-github"></i></a>
+
+            <div class="skills__data">
+              <div class="skills__names">
+                <i class="bx bxl-react skills__icon"></i>
+                <span class="skills__name">React.js, Next.js</span>
+              </div>
             </div>
-            <div class="home__img">
-                <img src="img/pic.png" alt="network timeout" />
+
+            <div class="skills__data">
+              <div class="skills__names">
+                <i class="bx bxl-nodejs skills__icon"></i>
+                <span class="skills__name">Node.js, Nest.js, Express.js</span>
+              </div>
             </div>
-        </section>
-        <!--===== ABOUT =====-->
-        <section class="about section" id="about">
-            <h2 class="section-title">About</h2>
-            <div class="about__container bd-grid">
-                <div class="about__img">
-                    <img src="img/pic2.jpg" alt="network timeout" />
-                </div>
 
-                <div>
-                    <h2 class="about__subtitle">ABDUL MAZOOD</h2>
-                    <p class="about__text">
-                        I am a qualified and professional web developer with few years of
-                        experience in web design and- front-end devolopment . and have the
-                        ability to understand new things and complete them within the
-                        given time
-                    </p>
-                </div>
+            <div class="skills__data">
+              <div class="skills__names">
+                <i class="bx bxl-html5 skills__icon"></i>
+                <span class="skills__name">HTML, CSS, Sass</span>
+              </div>
             </div>
-        </section>
-        <!--===== SKILLS =====-->
-        <section class="skills section" id="skills">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills__container bd-grid">
-                <div>
-                    <h2 class="skills__subtitle">Profesional Skills</h2>
-                    <p class="skills__text">What I Know..?</p>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <i class="bx bxl-html5 skills__icon"></i>
-                            <span class="skills__name">HTML</span>
-                        </div>
-                        <div class="skills__bar skills__html"></div>
-                        <div>
-                            <span class="skills__percentage">95%</span>
-                        </div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <i class="bx bxl-css3 skills__icon"></i>
-                            <span class="skills__name">Css/Sass</span>
-                        </div>
-                        <div class="skills__bar skills__css"></div>
-                        <div>
-                            <span class="skills__percentage">65%</span>
-                        </div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <i class="bx bxl-javascript skills__icon"></i>
-                            <span class="skills__name">JAVASCRIPT</span>
-                        </div>
-                        <div class="skills__bar skills__js"></div>
-                        <div>
-                            <span class="skills__percentage">60%</span>
-                        </div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <i class="bx bxs-paint skills__icon"></i>
-                            <span class="skills__name">React JS</span>
-                        </div>
-                        <div class="skills__bar skills__ux"></div>
-                        <div>
-                            <span class="skills__percentage">65%</span>
-                        </div>
-                    </div>
-                </div>
+          </div>
 
-                <div>
-                    <img src="img/computer.jpg" alt="please check the internet connection" class="skills__img" />
-                </div>
+          <!-- Second Column -->
+          <div>
+            <div class="skills__data">
+              <div class="skills__names">
+                <i class="bx bxl-codepen skills__icon"></i>
+                <span class="skills__name">GraphQL, REST APIs</span>
+              </div>
             </div>
-        </section>
-        <!--===== WORK =====-->
-        <section class="work section" id="work">
-            <h2 class="section-title">Projects</h2>
-            <div class="work__container bd-grid">
-                <div class="work__img">
-                    <img src="img/meta.png" alt="network error" />
-                    <a href="https://machumzd.github.io/Metamask-Project/" target="_blank">
-                        <div class="pro-title">MetaMask</div>
-                    </a>
-                </div>
-                <div class="work__img">
-                    <img src="img/truecaller.png" alt="network error" />
-                    <a href="https://machumzd.github.io/Truecaller-Project/" target="_blank">
-                        <div class="pro-title">Truecaller</div>
-                    </a>
-                </div>
-                <div class="work__img">
-                    <img src="img/canon.png" alt="network error" />
-                    <a href="https://machumzd.github.io/Canon-Project/" target="_blank">
-                        <div class="pro-title">Canon</div>
-                    </a>
-                </div>
-                <div class="work__img">
-                    <img src="img/emplacement.png" alt="network error" />
-                    <a href="https://www.emplacement.ml/" target="_blank">
-                        <div class="pro-title">Placement cell</div>
-                    </a>
-                </div>
-                <div class="work__img">
-                    <img src="img/responsive.png" alt="network error" />
-                    <a href="https://mzd-project2.herokuapp.com/" target="_blank">
-                        <div class="pro-title">F-end Project</div>
-                    </a>
-                </div>
-                <div class="work__img">
-                    <img src="img/losM.png" alt="network error" />
-                    <a href="https://losangeles-mountains.herokuapp.com/" target="_blank">
-                        <div class="pro-title">Los-Angeles</div>
-                    </a>
-                </div>
+
+            <div class="skills__data">
+              <div class="skills__names">
+                <i class="bx bxs-data skills__icon"></i>
+                <span class="skills__name"
+                  >MongoDB, MySQL, PostgreSQL (basic)</span
+                >
+              </div>
             </div>
-        </section>
 
-        <!-- testimonial -->
-
-        <section class="testimonial section" id="testimonial">
-            <h2 class="section-title">Testimonial</h2>
-            <div class="testimonial__container bd-grid">
-                <div class="testimonial__img">
-                    <img src="img/yathu.jpeg" alt="network error" />
-                    <div class="testimonial-title">
-                        <span class="main-title">Yatheesh Kumar</span><br /><span class="sub-title">MERN-STACK
-                            DEVOLOPER</span><br /><br />Just give him a project it will make it like ninja.He
-                        is a well desciplined devoloper,there is no one better than him
-                        when it comes to solving problems.
-                    </div>
-                </div>
-
-                <div class="testimonial__img">
-                    <img src="img/athun.jpeg" alt="network error" />
-                    <div class="testimonial-title">
-                        <span class="main-title">Athun Lal</span><br /><span class="sub-title">GOLANG
-                            DEVOLOPER</span><br /><br />Mazood is always showed a great care for his work and
-                        many time offered things to improve the work in his area .He is a
-                        hardworking champ.
-                    </div>
-                </div>
-
-                <div class="testimonial__img">
-                    <img src="img/souban.jpeg" alt="network error" />
-                    <div class="testimonial-title">
-                        <span class="main-title">Souban</span><br /><span class="sub-title">MEAN-STACK
-                            DEVOLOPER</span><br /><br />Mazood is a great enthusiast in Front-end
-                        devolopment.i have got a chance to work with him in a six months
-                        workshop and he is brilliant guy
-                    </div>
-                </div>
+            <div class="skills__data">
+              <div class="skills__names">
+                <i class="bx bx-cloud skills__icon"></i>
+                <span class="skills__name">Firebase, AWS (basic)</span>
+              </div>
             </div>
-        </section>
 
-        <!--===== CONTACT =====-->
-        <section class="contact section" id="contact">
-            <h2 class="section-title">Contact</h2>
-            <div class="contact__container bd-grid">
-                <form name="contactForm" onsubmit="return validateForm()" class="contact__form" method="post"
-                    id="formid">
-                    <div class="error" id="nameErr"></div>
-                    <input type="text" class="contact__input" placeholder="Name" name="name" />
-
-                    <div class="error" id="emailErr"></div>
-                    <input type="text" name="email" placeholder="Email" class="contact__input" />
-
-                    <div class="error" id="mobileErr"></div>
-                    <input type="text" class="contact__input" placeholder="Mobile no" name="mobile" maxlength="10" />
-
-                    <div class="error" id="messageErr"></div>
-                    <textarea class="contact__input" placeholder="Message" name="message" cols="0" rows="5"></textarea>
-
-                    <input type="submit" value="Submit" class="contact__button button" />
-                </form>
+            <div class="skills__data">
+              <div class="skills__names">
+                <i class="bx bx-git-branch skills__icon"></i>
+                <span class="skills__name">Git, GitHub, Postman</span>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <!--===== FOOTER =====-->
-        <footer class="footer">
-            <p class="footer__title">Machu_mzd</p>
-            <div class="footer__social">
-                <a href="https://www.facebook.com/mazoodmachu.binmohammed" class="footer__icon" target="_blank"><i
-                        class="bx bxl-facebook"></i></a>
-                <a href="https://www.instagram.com/machu_mzd/?hl=en" class="footer__icon" target="_blank"><i
-                        class="bx bxl-instagram"></i></a>
-                <a href="https://mobile.twitter.com/MzdVlogz" class="footer__icon" target="_blank"><i
-                        class="bx bxl-twitter"></i></a>
+      <!--===== WORK =====-->
+      <section class="work section" id="work">
+        <h2 class="section-title">Projects</h2>
+        <div class="work__container bd-grid">
+          <div class="work__img">
+            <a href="https://www.glamourbook.com/" target="_blank">
+              <img src="img/projects/glamourBook.png" alt="network error" />
+              <div class="pro-title">Glamour Book</div>
+            </a>
+          </div>
+          <div class="work__img">
+            <a href="https://www.partner.lebloom.io/" target="_blank">
+              <img src="img/projects/lebloom.png" alt="network error" />
+              <div class="pro-title">Le Bloom</div>
+            </a>
+          </div>
+          <div class="work__img">
+            <a href="https://www.glamourandbloom.in/" target="_blank">
+              <img src="img/projects/glamourAndBloom.png" alt="network error" />
+              <div class="pro-title">Glamour & Bloom</div>
+            </a>
+          </div>
+
+          <div class="work__img">
+            <a href="https://github.com/machumzd/MZEE-Shoes" target="_blank">
+              <img src="img/projects/Mzee.png" alt="network error" />
+              <div class="pro-title">Mzee Shoes</div>
+            </a>
+          </div>
+          <div class="work__img">
+            <a href="https://www.emplacement.ml/" target="_blank">
+              <img src="img/projects/emplacement.png" alt="network error" />
+              <div class="pro-title">Placement cell</div>
+            </a>
+          </div>
+          <div class="work__img">
+            <a
+              href="https://machumzd.github.io/Metamask-Project/"
+              target="_blank"
+            >
+              <img src="img/projects/meta.png" alt="network error" />
+              <div class="pro-title">MetaMask</div>
+            </a>
+          </div>
+
+          <div class="work__img">
+            <a
+              href="https://machumzd.github.io/Truecaller-Project/"
+              target="_blank"
+            >
+              <img src="img/projects/truecaller.png" alt="network error" />
+              <div class="pro-title">Truecaller</div>
+            </a>
+          </div>
+
+          <div class="work__img">
+            <a href="https://machumzd.github.io/Canon-Project/" target="_blank">
+              <img src="img/projects/canon.png" alt="network error" />
+              <div class="pro-title">Canon</div>
+            </a>
+          </div>
+
+          <div class="work__img">
+            <a
+              href="https://github.com/machumzd/LosAngeles-Mountains"
+              target="_blank"
+            >
+              <img src="img/projects/losM.png" alt="network error" />
+              <div class="pro-title">Los-Angeles</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- testimonial -->
+
+      <section class="testimonial section" id="testimonial">
+        <h2 class="section-title">Testimonial</h2>
+        <div class="testimonial__container bd-grid">
+          <div class="testimonial__img">
+            <img src="img/yathu.jpeg" alt="network error" />
+            <div class="testimonial-title">
+              <span class="main-title">Yatheesh Kumar</span><br /><span
+                class="sub-title"
+                >MERN-STACK DEVOLOPER @RADOME TECH</span
+              ><br /><br />Just give him a project it will make it like ninja.He
+              is a well desciplined devoloper,there is no one better than him
+              when it comes to solving problems.
             </div>
-            <p>Abdul-Mazood; 2022 copyright all right reserved</p>
-        </footer>
+          </div>
 
-        <!--===== SCROLL REVEAL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
-        <!---JS CDN Link---->
-        <script src="https://smtpjs.com/v3/smtp.js"></script>
-        <!--Custom JS File-->
-        <script src="main.js"></script>
-        <!-- contact js file -->
-        <script src="contact.js"></script>
-        <!-- sweetalert -->
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+          <div class="testimonial__img">
+            <img src="img/athun.jpeg" alt="network error" />
+            <div class="testimonial-title">
+              <span class="main-title">Athun Lal</span><br /><span
+                class="sub-title"
+                >GOLANG DEVOLOPER @SELLER APP</span
+              ><br /><br />Mazood is always showed a great care for his work and
+              many time offered things to improve the work in his area .He is a
+              hardworking champ.
+            </div>
+          </div>
+
+          <div class="testimonial__img">
+            <img src="img/souban.jpeg" alt="network error" />
+            <div class="testimonial-title">
+              <span class="main-title">Souban</span><br /><span
+                class="sub-title"
+                >MEAN-STACK DEVOLOPER @NECTAR.</span
+              ><br /><br />Mazood is a great enthusiast in Front-end
+              devolopment.i have got a chance to work with him in a six months
+              workshop and he is brilliant guy
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--===== CONTACT =====-->
+      <section class="contact section" id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact__container bd-grid">
+          <form
+            name="contactForm"
+            onsubmit="return validateForm()"
+            class="contact__form"
+            method="post"
+            id="formid"
+          >
+            <div class="error" id="nameErr"></div>
+            <input
+              type="text"
+              class="contact__input"
+              placeholder="Name"
+              name="name"
+            />
+
+            <div class="error" id="emailErr"></div>
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              class="contact__input"
+            />
+
+            <div class="error" id="mobileErr"></div>
+            <input
+              type="text"
+              class="contact__input"
+              placeholder="Mobile no"
+              name="mobile"
+              maxlength="10"
+            />
+
+            <div class="error" id="messageErr"></div>
+            <textarea
+              class="contact__input"
+              placeholder="Message"
+              name="message"
+              cols="0"
+              rows="5"
+            ></textarea>
+
+            <input
+              type="submit"
+              value="Submit"
+              class="contact__button button"
+            />
+          </form>
+        </div>
+      </section>
+
+      <!--===== FOOTER =====-->
+      <footer class="footer">
+        <p class="footer__title">Machu_mzd</p>
+        <div class="footer__social">
+          <a
+            href="https://www.facebook.com/mazoodmachu.binmohammed"
+            class="footer__icon"
+            target="_blank"
+            ><i class="bx bxl-facebook"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/machu_mzd/?hl=en"
+            class="footer__icon"
+            target="_blank"
+            ><i class="bx bxl-instagram"></i
+          ></a>
+          <a
+            href="https://mobile.twitter.com/MzdVlogz"
+            class="footer__icon"
+            target="_blank"
+            ><i class="bx bxl-twitter"></i
+          ></a>
+        </div>
+        <p>
+          Abdul-Mazood; <span id="year"></span> copyright; all right reserved
+        </p>
+      </footer>
+
+      <!--===== SCROLL REVEAL =====-->
+      <script src="https://unpkg.com/scrollreveal"></script>
+      <!---JS CDN Link---->
+      <script src="https://smtpjs.com/v3/smtp.js"></script>
+      <!--Custom JS File-->
+      <script src="main.js"></script>
+      <!-- contact js file -->
+      <script src="contact.js"></script>
+      <!-- sweetalert -->
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+      </script>
     </main>
-</body>
-
+  </body>
 </html>
