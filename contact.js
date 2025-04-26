@@ -71,6 +71,7 @@ function validateForm() {
     var xhr = new XMLHttpRequest();
     var data = new FormData(form);
     console.log(data);
+    console.log(Object.fromEntries(data.entries()));
     xhr.open(
       "POST",
       "https://script.google.com/macros/s/AKfycbzK12t42SbgRVxYEjcn4lpssSoFVR579NQrG_chC-6Kfs_ZjABdBhHwAT6_Hk-Z5PHEbg/exec"
