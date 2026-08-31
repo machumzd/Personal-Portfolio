@@ -136,23 +136,35 @@ export default function ContactForm() {
       {/* named to match the Apps Script, which strips this field from the sheet */}
       <div className="hp" aria-hidden="true">
         <label htmlFor="cf-honeypot">Company</label>
-        <input id="cf-honeypot" name="honeypot" type="text" tabIndex={-1} autoComplete="off" />
+        <input
+          id="cf-honeypot"
+          name="honeypot"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
       </div>
 
       <div>
-        <button type="submit" className="btn btn--mint" disabled={status === "sending"}>
+        <button
+          type="submit"
+          className="btn btn--mint"
+          disabled={status === "sending"}
+        >
           {status === "sending" ? "Sending" : "Send message"}
         </button>
       </div>
 
       <p className="form__status" role="status" aria-live="polite">
-        {status === "sent" && "Thanks — that came through. I'll reply within a day or two."}
+        {status === "sent" &&
+          "Thanks - that came through. I'll reply within a day or two."}
         {status === "unconfirmed" &&
           "Sent. If you don't hear back in a couple of days, email me directly."}
         {status === "error" && (
           <>
             That didn&rsquo;t send. Please email{" "}
-            <a href="mailto:machumzdofcl@gmail.com">machumzdofcl@gmail.com</a> instead.
+            <a href="mailto:machumzdofcl@gmail.com">machumzdofcl@gmail.com</a>{" "}
+            instead.
           </>
         )}
       </p>

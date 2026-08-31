@@ -2,7 +2,7 @@
  * Contact form handler for abdulmazood.netlify.app
  *
  * FIXES APPLIED TO THE ORIGINAL:
- *  1. Removed .setHeader() — TextOutput has no such method in Apps Script, so
+ *  1. Removed .setHeader() - TextOutput has no such method in Apps Script, so
  *     every response threw a TypeError, including the one in the catch block.
  *     CORS headers cannot be set this way; the deployment setting is what matters.
  *  2. Added doGet() so you can open the /exec URL in a browser and confirm the
@@ -15,9 +15,9 @@ var TO_ADDRESS = "machumzdofcl@gmail.com";
 
 /** Open the /exec URL in a browser: this should render, proving public access. */
 function doGet() {
-  return ContentService
-    .createTextOutput(JSON.stringify({ result: "ok", message: "Endpoint is live." }))
-    .setMimeType(ContentService.MimeType.JSON);
+  return ContentService.createTextOutput(
+    JSON.stringify({ result: "ok", message: "Endpoint is live." }),
+  ).setMimeType(ContentService.MimeType.JSON);
 }
 
 function doPost(e) {
@@ -28,28 +28,28 @@ function doPost(e) {
     var orderParameter = e.parameters.formDataNameOrder;
     var dataOrder = orderParameter ? JSON.parse(orderParameter) : undefined;
 
-    var sendEmailTo = (typeof TO_ADDRESS !== "undefined")
-      ? TO_ADDRESS
-      : mailData.formGoogleSendEmail;
+    var sendEmailTo =
+      typeof TO_ADDRESS !== "undefined"
+        ? TO_ADDRESS
+        : mailData.formGoogleSendEmail;
 
     if (sendEmailTo) {
       MailApp.sendEmail({
         to: String(sendEmailTo),
-        subject: "Portfolio contact form — " + (mailData.name || "no name"),
+        subject: "Portfolio contact form - " + (mailData.name || "no name"),
         replyTo: mailData.email ? String(mailData.email) : undefined,
-        htmlBody: formatMailBody(mailData, dataOrder)
+        htmlBody: formatMailBody(mailData, dataOrder),
       });
     }
 
-    return ContentService
-      .createTextOutput(JSON.stringify({ result: "success" }))
-      .setMimeType(ContentService.MimeType.JSON);
-
+    return ContentService.createTextOutput(
+      JSON.stringify({ result: "success" }),
+    ).setMimeType(ContentService.MimeType.JSON);
   } catch (error) {
     Logger.log(error);
-    return ContentService
-      .createTextOutput(JSON.stringify({ result: "error", error: String(error) }))
-      .setMimeType(ContentService.MimeType.JSON);
+    return ContentService.createTextOutput(
+      JSON.stringify({ result: "error", error: String(error) }),
+    ).setMimeType(ContentService.MimeType.JSON);
   }
 }
 
@@ -59,9 +59,19 @@ function formatMailBody(obj, order) {
 
   for (var idx in order) {
     var key = order[idx];
-    if (key === "formDataNameOrder" || key === "formGoogleSheetName" || key === "honeypot") continue;
-    result += "<h4 style='text-transform: capitalize; margin-bottom: 0'>" + key + "</h4>"
-            + "<div>" + sanitizeInput(obj[key]) + "</div>";
+    if (
+      key === "formDataNameOrder" ||
+      key === "formGoogleSheetName" ||
+      key === "honeypot"
+    )
+      continue;
+    result +=
+      "<h4 style='text-transform: capitalize; margin-bottom: 0'>" +
+      key +
+      "</h4>" +
+      "<div>" +
+      sanitizeInput(obj[key]) +
+      "</div>";
   }
   return result;
 }
@@ -83,10 +93,14 @@ function record_data(e) {
 
     // Fail loudly rather than silently dropping every submission.
     if (!sheet) {
-      throw new Error("No sheet tab named '" + sheetName + "'. Rename a tab to match.");
+      throw new Error(
+        "No sheet tab named '" + sheetName + "'. Rename a tab to match.",
+      );
     }
 
-    var oldHeader = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    var oldHeader = sheet
+      .getRange(1, 1, 1, sheet.getLastColumn())
+      .getValues()[0];
     var newHeader = oldHeader.slice();
     var fieldsFromForm = getDataColumns(e.parameters);
     var row = [new Date()];
@@ -117,10 +131,12 @@ function record_data(e) {
 
 function getDataColumns(data) {
   return Object.keys(data).filter(function (column) {
-    return !(column === "formDataNameOrder"
-          || column === "formGoogleSheetName"
-          || column === "formGoogleSendEmail"
-          || column === "honeypot");
+    return !(
+      column === "formDataNameOrder" ||
+      column === "formGoogleSheetName" ||
+      column === "formGoogleSendEmail" ||
+      column === "honeypot"
+    );
   });
 }
 

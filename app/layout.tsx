@@ -108,7 +108,15 @@ const schema = {
       url: `${SITE}/`,
       name: `${person.name} - ${person.role}`,
       isPartOf: { "@id": `${SITE}/#website` },
-      about: { "@id": `${SITE}/#person` },
+      // Google requires mainEntity on ProfilePage (not `about`), and wants the
+      // name present on the node itself, so it is inlined here and linked by
+      // @id to the full Person node below.
+      mainEntity: {
+        "@id": `${SITE}/#person`,
+        "@type": "Person",
+        name: person.name,
+      },
+      dateModified: new Date().toISOString(),
       primaryImageOfPage: {
         "@type": "ImageObject",
         url: `${SITE}/abdul-mazood.jpg`,
@@ -208,7 +216,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
-        <meta name="google-site-verification" content="Mo91zYgpuNKQSJPy2MyU1U7gXHiSNBni9noKHsMJ4UQ" />
+        <meta
+          name="google-site-verification"
+          content="Mo91zYgpuNKQSJPy2MyU1U7gXHiSNBni9noKHsMJ4UQ"
+        />
       </head>
       <body>{children}</body>
     </html>
