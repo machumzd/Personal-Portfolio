@@ -1,0 +1,28 @@
+{
+  "name": "Abdul Mazood \u2014 Senior Full Stack Developer",
+  "short_name": "Abdul Mazood",
+  "icons": [
+    {
+      "src": "/favIcons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favIcons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favIcons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#0d2309",
+  "background_color": "#0d2309",
+  "display": "standalone",
+  "start_url": "/"
+}
