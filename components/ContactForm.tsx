@@ -3,15 +3,19 @@
 import { useState } from "react";
 
 /**
- * Posts to the existing Google Apps Script webhook that the previous site used.
- * Override with NEXT_PUBLIC_CONTACT_ENDPOINT at build time to point elsewhere.
+ * Posts to a Google Apps Script web app.
+ *
+ * Apps Script only populates `e.parameters` for application/x-www-form-urlencoded,
+ * so the body is URLSearchParams rather than FormData. That is also a "simple"
+ * request, so the browser sends it without a CORS preflight (Apps Script cannot
+ * answer an OPTIONS preflight at all).
  */
 const ENDPOINT =
   process.env.NEXT_PUBLIC_CONTACT_ENDPOINT ??
   "https://script.google.com/macros/s/AKfycbzK12t42SbgRVxYEjcn4lpssSoFVR579NQrG_chC-6Kfs_ZjABdBhHwAT6_Hk-Z5PHEbg/exec";
 
 type Errors = Partial<Record<"name" | "email" | "message", string>>;
-type Status = "idle" | "sending" | "sent" | "error";
+type Status = "idle" | "sending" | "sent" | "unconfirmed" | "error";
 
 export default function ContactForm() {
   const [errors, setErrors] = useState<Errors>({});
@@ -23,7 +27,7 @@ export default function ContactForm() {
     const data = new FormData(form);
 
     // Bots fill hidden fields; people do not.
-    if ((data.get("company") as string)?.length) return;
+    if ((data.get("honeypot") as string)?.length) return;
 
     const name = (data.get("name") as string)?.trim() ?? "";
     const email = (data.get("email") as string)?.trim() ?? "";
@@ -38,18 +42,42 @@ export default function ContactForm() {
 
     setErrors(next);
     if (Object.keys(next).length > 0) {
-      const firstField = Object.keys(next)[0];
-      form.querySelector<HTMLElement>(`[name="${firstField}"]`)?.focus();
+      const first = Object.keys(next)[0];
+      form.querySelector<HTMLElement>(`[name="${first}"]`)?.focus();
       return;
     }
 
+    const body = new URLSearchParams({
+      name,
+      email,
+      message,
+      // the Apps Script uses these to order the email body and pick the sheet tab
+      formDataNameOrder: JSON.stringify(["name", "email", "message"]),
+      formGoogleSheetName: "responses",
+    });
+
     setStatus("sending");
+
     try {
-      await fetch(ENDPOINT, { method: "POST", body: data, mode: "no-cors" });
-      setStatus("sent");
-      form.reset();
+      const res = await fetch(ENDPOINT, { method: "POST", body });
+      // A readable response means we can confirm delivery properly.
+      const text = await res.text();
+      if (res.ok && text.includes("success")) {
+        setStatus("sent");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
     } catch {
-      setStatus("error");
+      // The response was unreadable (opaque redirect or CORS). Resend in no-cors
+      // so the submission still lands, but do not claim confirmed delivery.
+      try {
+        await fetch(ENDPOINT, { method: "POST", body, mode: "no-cors" });
+        setStatus("unconfirmed");
+        form.reset();
+      } catch {
+        setStatus("error");
+      }
     }
   }
 
@@ -105,32 +133,28 @@ export default function ContactForm() {
         )}
       </div>
 
+      {/* named to match the Apps Script, which strips this field from the sheet */}
       <div className="hp" aria-hidden="true">
-        <label htmlFor="cf-company">Company</label>
-        <input
-          id="cf-company"
-          name="company"
-          type="text"
-          tabIndex={-1}
-          autoComplete="off"
-        />
+        <label htmlFor="cf-honeypot">Company</label>
+        <input id="cf-honeypot" name="honeypot" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
       <div>
-        <button
-          type="submit"
-          className="btn btn--mint"
-          disabled={status === "sending"}
-        >
+        <button type="submit" className="btn btn--mint" disabled={status === "sending"}>
           {status === "sending" ? "Sending" : "Send message"}
         </button>
       </div>
 
       <p className="form__status" role="status" aria-live="polite">
-        {status === "sent" &&
-          "Thanks - your message is through. I will reply within a day or two."}
-        {status === "error" &&
-          "That did not send. Email me directly and it will reach me."}
+        {status === "sent" && "Thanks — that came through. I'll reply within a day or two."}
+        {status === "unconfirmed" &&
+          "Sent. If you don't hear back in a couple of days, email me directly."}
+        {status === "error" && (
+          <>
+            That didn&rsquo;t send. Please email{" "}
+            <a href="mailto:machumzdofcl@gmail.com">machumzdofcl@gmail.com</a> instead.
+          </>
+        )}
       </p>
     </form>
   );
